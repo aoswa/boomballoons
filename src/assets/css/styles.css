@@ -29,3 +29,42 @@ body.lightbox-open{overflow:hidden}
 .tabs button{transition:background .15s ease,color .15s ease,transform .15s ease}
 .tabs button:hover{transform:translateY(-1px)}
 @media(max-width:640px){.footer{background:#fff}}
+
+
+/* ... existing code ... */
+.footer img{filter:none}
+
+.social-links{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+}
+
+.social-links a{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:#fff;
+  color:var(--purple);
+  box-shadow:0 10px 24px rgba(22,15,69,.1);
+  transition:transform .18s ease, background .18s ease, color .18s ease;
+}
+
+.social-links a:hover{
+  transform:translateY(-2px);
+  background:var(--pink);
+  color:#fff;
+}
+
+.social-icon{
+  width:20px;
+  height:20px;
+  display:block;
+  fill:currentColor;
+}
+
+.lightbox{overflow:hidden}
+/* ... existing code ... */
