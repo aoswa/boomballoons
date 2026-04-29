@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520">
+<defs>
+<filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".16"/></filter>
+<radialGradient id="bg" cx="50%" cy="15%" r="80%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eee7df"/></radialGradient>
+</defs>
+<rect width="760" height="520" rx="34" fill="url(#bg)"/>
+<rect x="70" y="80" width="620" height="360" rx="30" fill="#d8cbbd"/>
+<g filter="url(#shadow)">
+<circle cx="150" cy="120" r="44" fill="#efe1c6"/><circle cx="210" cy="105" r="44" fill="#c9d6b8"/><circle cx="270" cy="110" r="44" fill="#f5f1e8"/>
+<circle cx="330" cy="120" r="44" fill="#efe1c6"/><circle cx="390" cy="112" r="44" fill="#c9d6b8"/><circle cx="450" cy="122" r="44" fill="#f5f1e8"/>
+<circle cx="510" cy="145" r="44" fill="#efe1c6"/><circle cx="560" cy="190" r="44" fill="#c9d6b8"/><circle cx="590" cy="250" r="44" fill="#f5f1e8"/>
+<circle cx="135" cy="190" r="44" fill="#c9d6b8"/><circle cx="120" cy="255" r="44" fill="#f5f1e8"/><circle cx="135" cy="320" r="44" fill="#efe1c6"/>
+</g>
+<circle cx="200" cy="355" r="55" fill="#f5e7cf"/>
+<circle cx="555" cy="355" r="46" fill="#fff" opacity=".85"/>
+<text x="380" y="275" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="#fff">Oh Baby</text>
+</svg>
