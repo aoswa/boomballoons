@@ -48,32 +48,40 @@ if(dialog){
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('whatsapp-form');
+console.log('[WA FORM] script loaded');
 
-  if (!form) return;
+const form = document.querySelector('.contact-form');
 
-  form.addEventListener('submit', (event) => {
+console.log('[WA FORM] form found:', form);
+
+if (form) {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const name = form.elements.name.value.trim();
-    const phone = form.elements.phone.value.trim();
-    const message = form.elements.message.value.trim();
+    console.log('[WA FORM] submit triggered');
+
+    const name = form.querySelector('input[aria-label="Nume"]')?.value.trim() || '';
+    const phone = form.querySelector('input[aria-label="Telefon"]')?.value.trim() || '';
+    const message = form.querySelector('textarea[aria-label="Mesaj"]')?.value.trim() || '';
+
+    console.log('[WA FORM] values:', { name, phone, message });
 
     const text = [
       'Bună! Mă interesează un decor cu baloane.',
       '',
-      name ? `Nume: ${name}` : null,
-      phone ? `Telefon: ${phone}` : null,
-      message ? `Mesaj: ${message}` : null,
+      name ? `Nume: ${name}` : '',
+      phone ? `Telefon: ${phone}` : '',
+      message ? `Mesaj: ${message}` : '',
       '',
       'Trimis de pe boomballoons.ro'
     ]
         .filter(Boolean)
         .join('\n');
 
-    const whatsappUrl = `https://wa.me/40750433955?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/40750433955?text=${encodeURIComponent(text)}`;
 
-    window.location.href = whatsappUrl;
+    console.log('[WA FORM] redirect:', url);
+
+    window.location.href = url;
   });
-});
+}
