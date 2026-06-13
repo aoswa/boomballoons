@@ -47,3 +47,42 @@ if(dialog){
     btn.addEventListener('click',()=>document.body.classList.add('lightbox-open'));
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.contact-form');
+
+  if (!form) return;
+
+  const nameInput = form.querySelector('input[aria-label="Nume"]');
+  const phoneInput = form.querySelector('input[aria-label="Telefon"]');
+  const messageInput = form.querySelector('textarea[aria-label="Mesaj"]');
+  const submitButton = form.querySelector('.submit-btn');
+
+  submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const message = messageInput.value.trim();
+
+    let text = 'Bună! Mă interesează un decor cu baloane.%0A%0A';
+
+    if (name) {
+      text += `Nume: ${name}%0A`;
+    }
+
+    if (phone) {
+      text += `Telefon: ${phone}%0A`;
+    }
+
+    if (message) {
+      text += `%0AMesaj:%0A${message}%0A`;
+    }
+
+    text += '%0AAm trimis mesajul de pe boomballoons.ro';
+
+    const whatsappUrl = `https://wa.me/40750433955?text=${text}`;
+
+    window.open(whatsappUrl, '_blank');
+  });
+});
