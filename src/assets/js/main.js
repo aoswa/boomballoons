@@ -49,40 +49,31 @@ if(dialog){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('.contact-form');
+  const form = document.getElementById('whatsapp-form');
 
   if (!form) return;
 
-  const nameInput = form.querySelector('input[aria-label="Nume"]');
-  const phoneInput = form.querySelector('input[aria-label="Telefon"]');
-  const messageInput = form.querySelector('textarea[aria-label="Mesaj"]');
-  const submitButton = form.querySelector('.submit-btn');
-
-  submitButton.addEventListener('click', (event) => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const name = nameInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const message = messageInput.value.trim();
+    const name = form.elements.name.value.trim();
+    const phone = form.elements.phone.value.trim();
+    const message = form.elements.message.value.trim();
 
-    let text = 'Bună! Mă interesează un decor cu baloane.%0A%0A';
+    const text = [
+      'Bună! Mă interesează un decor cu baloane.',
+      '',
+      name ? `Nume: ${name}` : null,
+      phone ? `Telefon: ${phone}` : null,
+      message ? `Mesaj: ${message}` : null,
+      '',
+      'Trimis de pe boomballoons.ro'
+    ]
+        .filter(Boolean)
+        .join('\n');
 
-    if (name) {
-      text += `Nume: ${name}%0A`;
-    }
+    const whatsappUrl = `https://wa.me/40750433955?text=${encodeURIComponent(text)}`;
 
-    if (phone) {
-      text += `Telefon: ${phone}%0A`;
-    }
-
-    if (message) {
-      text += `%0AMesaj:%0A${message}%0A`;
-    }
-
-    text += '%0AAm trimis mesajul de pe boomballoons.ro';
-
-    const whatsappUrl = `https://wa.me/40750433955?text=${text}`;
-
-    window.open(whatsappUrl, '_blank');
+    window.location.href = whatsappUrl;
   });
 });
